@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# Airflow
+logs/
+*.log
+
+# Data — too large for GitHub
+data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
