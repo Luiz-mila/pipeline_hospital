@@ -176,7 +176,8 @@ docker compose up -d
 ## 🧠 About the Author
 
 **Luiz Milaré**  
-Data Engineer | SQL · Python · Airflow · PostgreSQL · Docker · Snowflake · Power BI  
+Data Engineer | SQL · Python · Airflow · PostgreSQL · Docker · Snowflake · AWS · Power BI  
+
 📍 Paris, France  
 📧 milahercu@gmail.com  
 🔗 [GitHub](https://github.com/Luiz-mila) · [LinkedIn](https://www.linkedin.com/in/luiz-milaré)
