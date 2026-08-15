@@ -16,37 +16,39 @@ This project implements a production-grade ETL pipeline that ingests, validates,
 
 ## 🏗️ Architecture
 
+```text
 hospital_records.csv
-↓
-Apache Airflow DAG
-↓
-┌──────────────────┐
-│ validate_file │ — checks file exists and is not empty
-└────────┬─────────┘
-↓
-┌──────────────────┐
-│ read_csv │ — loads first 10,000 rows with Pandas
-└────────┬─────────┘
-↓
-┌──────────────────┐
-│ data_quality │ — null counts, dtype analysis, financial cols check
-└────────┬─────────┘
-↓
-┌──────────────────┐
-│ clean │ — fixes financial cols, fills nulls
-└────────┬─────────┘
-↓
-┌──────────────────┐
-│ transform │ — creates charge_cost_ratio, length_of_stay_numeric, is_emergency
-└────────┬─────────┘
-↓
-┌──────────────────┐
-│ load_to_postgres │ — loads 10,000 rows into PostgreSQL
-└────────┬─────────┘
-↓
-PostgreSQL
-↓
-SQL Analytics
+        ↓
+   Apache Airflow DAG
+        ↓
+ ┌──────────────────┐
+ │  validate_file   │  — checks file exists and is not empty
+ └────────┬─────────┘
+          ↓
+ ┌──────────────────┐
+ │    read_csv      │  — loads first 10,000 rows with Pandas
+ └────────┬─────────┘
+          ↓
+ ┌──────────────────┐
+ │  data_quality    │  — null counts, dtype analysis, financial cols check
+ └────────┬─────────┘
+          ↓
+ ┌──────────────────┐
+ │     clean        │  — fixes financial cols, fills nulls
+ └────────┬─────────┘
+          ↓
+ ┌──────────────────┐
+ │   transform      │  — creates charge_cost_ratio, length_of_stay_numeric, is_emergency
+ └────────┬─────────┘
+          ↓
+ ┌──────────────────┐
+ │ load_to_postgres │  — loads 10,000 rows into PostgreSQL
+ └────────┬─────────┘
+          ↓
+     PostgreSQL
+          ↓
+   SQL Analytics
+```
 
 ---
 
@@ -66,32 +68,34 @@ SQL Analytics
 
 ## 📁 Project Structure
 
+```text
 pipeline_hospital/
 │
-├── data/ # Raw dataset (not versioned — too large)
-│ └── hospital_records.csv
+├── data/                          # Raw dataset (not versioned — too large)
+│   └── hospital_records.csv
 │
 ├── dags/
-│ └── pipeline_hospital.py # Airflow DAG — full pipeline definition
+│   └── pipeline_hospital.py       # Airflow DAG — full pipeline definition
 │
 ├── src/
-│ ├── etl/
-│ │ ├── read_csv.py   # Reads CSV with Pandas
-│ │ ├── data_quality.py   # Quality analysis — nulls, dtypes
-│ │ ├── clean.py   # Cleans financial cols and nulls
-│ │ ├── transform.py # Creates engineered features
-│ │ └── load.py   # Loads to PostgreSQL via SQLAlchemy
-│ │
-│ └── utils/
-│ └── file_validation.py   # Validates file existence and size
+│   ├── etl/
+│   │   ├── read_csv.py            # Reads CSV with Pandas
+│   │   ├── data_quality.py        # Quality analysis — nulls, dtypes
+│   │   ├── clean.py               # Cleans financial cols and nulls
+│   │   ├── transform.py           # Creates engineered features
+│   │   └── load.py                # Loads to PostgreSQL via SQLAlchemy
+│   │
+│   └── utils/
+│       └── file_validation.py     # Validates file existence and size
 │
 ├── sql/
-│ └── analysis.sql   # Analytical SQL queries
+│   └── analysis.sql               # Analytical SQL queries
 │
-├── docker-compose.yaml   # Airflow + PostgreSQL environment
-├── requirements.txt   # Python dependencies
-├── .gitignore   # Excludes data, logs, credentials
+├── docker-compose.yaml            # Airflow + PostgreSQL environment
+├── requirements.txt               # Python dependencies
+├── .gitignore                     # Excludes data, logs, credentials
 └── README.md
+```
 
 ---
 
