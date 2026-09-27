@@ -182,4 +182,4 @@ Data Engineer | SQL · Python · Airflow · PostgreSQL · Docker · Snowflake ·
 📧 milahercu@gmail.com  
 🔗 [GitHub](https://github.com/Luiz-mila) · [LinkedIn](https://www.linkedin.com/in/luiz-milaré)
 
-Data Engineer and BI Analyst with hands-on experience building ETL pipelines, data warehouses, and analytical dashboards. Certified in Snowflake SQL and holder of a RNCP Level 6 Data Engineering certification. Fluent in Portuguese, French, English, and Italian — working across international data environments with a focus on healthcare, finance, and e-commerce domains.
+Data Engineer and BI Analyst with hands-on experience building ETL pipelines, data warehouses, and analytical dashboards. Certified in Snowflake SQL and holder of a RNCP Level 6 Data Engineering certification and a BSc in Computer Science. Fluent in Portuguese, French, English, and Italian — working across international data environments with a focus on healthcare, finance, and e-commerce domains.
